@@ -1,7 +1,94 @@
+:root {
+  --color-bg: #f7faf5;
+  --color-surface: #ffffff;
+  --color-primary: #6a994e;       /* leafy green */
+  --color-primary-dark: #386641; 
+  --color-secondary: #a7c957;     /* garden green */
+  --color-accent: #f2e8cf;        /* soft parchment */
+  --color-text: #2f2f2f;
+  --color-muted: #6c757d;
+  --color-border: #dde5d0;
+
+  --font-main: 'Quicksand', sans-serif;
+  --font-headings: 'Playfair Display', serif;
+}
+
 body {
-    background-color: #cdd1da;
-    padding: 40px;
-    font-family: Sans-Serif;
-    text-align: center;
-  }
-  
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.6em;
+  font-family: var(--font-main);
+  font-size: 1em;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  width: 50%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2em;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.5em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  margin-bottom: 2em;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin: 2em 0;
+}
