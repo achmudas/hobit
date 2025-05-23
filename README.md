@@ -48,3 +48,14 @@ my-app/
 ### Some ideas (rules?)
 
 [] At the beginning get one powerful hobit with super magic powers (randomly)
+
+
+
+
+### Random stuff
+
+curl http://localhost:8080/hobits \
+    --include \
+    --header "Content-Type: application/json" \
+    --request "POST" \
+    --data '{"id": "4", "name": "Lambert Underhill", "age": 105, "mood": "Sad", "footSize": "14 inches", "liveness": false}'
