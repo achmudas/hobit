@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	cors "github.com/rs/cors/wrapper/gin"
 )
 
 type hobit struct {
@@ -49,6 +51,7 @@ func postHobits(c *gin.Context) {
 
 func main() {
 	router := gin.Default()
+	router.Use(cors.Default()) // #FIXME remove me?
 	router.GET("/hobits", getHobits)
 	router.GET("/hobits/:id", getHobitByID)
 	router.POST("/hobits", postHobits)

@@ -8,6 +8,7 @@
 
 Structure:
 
+
 my-app/
 │
 ├── backend/                # Go (REST API)

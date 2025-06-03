@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Hobbit from './pages/hobbit/Hobbit';
+import Hobbits from './pages/hobbit/Hobbits';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
@@ -16,7 +16,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="hobbits" element={<Hobbit about="amazing"/>} />
+                    <Route path="hobbits" element={<Hobbits about="amazing"/>} />
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>

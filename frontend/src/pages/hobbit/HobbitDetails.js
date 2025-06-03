@@ -31,10 +31,10 @@ function HobbitDetails(props) {
             <form  onSubmit={submitHobbit}>
                 <div>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" value={inputs.name || ''} onChange={handleChange} />
+                    <input type="text" id="name" name="name" value={props.name || ''} onChange={handleChange} />
                 </div>
 
-                <label for="age">Age: {props.hobbitDetail.hobbitInfo.age}</label>
+                <label for="age">Age: {props.hobbitDetail.age}</label>
 
                 <br></br>
 
