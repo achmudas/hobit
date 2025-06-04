@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 
@@ -42,8 +44,12 @@ func postHobits(c *gin.Context) {
 	var newHobit hobit
 
 	if err := c.Bind(&newHobit); err != nil {
+		fmt.Println(err)
 		return
 	}
+
+	newHobit.Liveness = false
+	newHobit.ID = strconv.Itoa(len(hobits) + 1)
 
 	hobits = append(hobits, newHobit)
 	c.IndentedJSON(http.StatusCreated, newHobit)
