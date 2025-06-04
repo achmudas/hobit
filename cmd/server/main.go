@@ -9,12 +9,12 @@ import (
 )
 
 type hobit struct {
-	ID       string `json:id`
-	Name     string `json:name`
-	Age      int    `json:age`
-	Mood     string `json:mood`
-	FootSize string `json:footSize`
-	Liveness bool   `json:liveness`
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Age      int    `json:"age"`
+	Mood     string `json:"mood"`
+	FootSize string `json:"footSize"`
+	Liveness bool   `json:"liveness"`
 }
 
 var hobits = []hobit{
