@@ -32,7 +32,7 @@ function HobbitDetails(props) {
                 <label for="footSize">Foot size: {props.hobbitDetail.footSize}</label>
             </div>
             <div>
-                {props.live ? <AliveHobbit /> : <DeadHobbit />}
+                {props.hobbitDetail.liveness ? <AliveHobbit /> : <DeadHobbit />}
             </div>
         </div>
         // #TODO When hobbit is submitted it becomes a name, or maybe some avatar moving?

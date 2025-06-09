@@ -3,13 +3,6 @@ import HobbitDetails from "./HobbitDetails"
 import { useState, useEffect } from "react";
 
 function Hobbit(props) {
-  // const hobbitsDetails = [
-  //   { id: 1, hobbitInfo: { age: Math.floor(Math.random() * 150) } },
-  //   { id: 2, hobbitInfo: { age: Math.floor(Math.random() * 150) } },
-  //   { id: 3, hobbitInfo: { age: Math.floor(Math.random() * 150) } },
-  //   { id: 4, hobbitInfo: { age: Math.floor(Math.random() * 150) } },
-  //   { id: 5, hobbitInfo: { age: Math.floor(Math.random() * 150) } }
-  // ]
 
   const moods = ['Happy', 'Angry', 'Sad'];
 
@@ -64,7 +57,7 @@ function Hobbit(props) {
       {hobits.map((hobit) =>
         <div>
           <br></br>
-          <HobbitDetails key={hobit.id} hobbitDetail={hobit} live={Math.random() < 0.5} />
+          <HobbitDetails key={hobit.id} hobbitDetail={hobit} />
         </div>
       )}
       <hr></hr>
@@ -85,7 +78,7 @@ function Hobbit(props) {
 
         <div>
           <label for="mood">Mood: {inputs.mood}</label>
-          <button onClick={() => changeMood()}>Change my mood</button>
+          <button type="button" onClick={() => changeMood()}>Change my mood</button>
         </div>
 
         <div>
