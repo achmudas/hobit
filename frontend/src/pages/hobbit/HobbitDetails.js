@@ -23,9 +23,10 @@ function HobbitDetails(props) {
             <label for="age">Age: {props.hobbitDetail.age}</label>
 
             <br></br>
+            {/* /** #FIXME Do I need you? **/}
             <div>
                 <label for="mood">Mood: {props.hobbitDetail.mood}</label>
-                <button onClick={() => changeMood()}>Change my mood</button>
+                <button onClick={() => changeMood()}>Change my mood</button> 
             </div>
 
             <div>
