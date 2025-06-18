@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AliveHobbit from "../../AliveHobbit";
 import DeadHobbit from "../../DeadHobbit";
-import styles from './hobbit-details.module.css';
 
 function HobbitDetails(props) {
 
@@ -15,7 +14,7 @@ function HobbitDetails(props) {
     }
 
     return (
-        <div className={styles.bigblue}>
+        <>
             <div>
                 <label for="name">Name: {props.hobbitDetail.name}</label>
             </div>
@@ -26,7 +25,7 @@ function HobbitDetails(props) {
             {/* /** #FIXME Do I need you? **/}
             <div>
                 <label for="mood">Mood: {props.hobbitDetail.mood}</label>
-                <button onClick={() => changeMood()}>Change my mood</button> 
+                <button onClick={() => changeMood()}>Change my mood</button>
             </div>
 
             <div>
@@ -35,7 +34,7 @@ function HobbitDetails(props) {
             <div>
                 {props.hobbitDetail.liveness ? <AliveHobbit /> : <DeadHobbit />}
             </div>
-        </div>
+        </>
         // #TODO When hobbit is submitted it becomes a name, or maybe some avatar moving?
     )
 }

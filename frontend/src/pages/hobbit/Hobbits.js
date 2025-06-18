@@ -1,4 +1,4 @@
-import { fetchHobits } from "../../services/api";
+import { createHobit, fetchHobits } from "../../services/api";
 import HobbitDetails from "./HobbitDetails"
 import { useState, useEffect } from "react";
 import stylesHobit from './hobbit.module.css';
@@ -14,7 +14,6 @@ function Hobbit(props) {
     const loadHobits = async () => {
       try {
         const hobits = await fetchHobits();
-        console.log('hobits' + hobits)
         setHobits(hobits);
       } catch (err) {
         console.error('Something failed ' + err);
@@ -22,29 +21,36 @@ function Hobbit(props) {
     };
 
     loadHobits();
-  }, [wasNewHobitClicked]
+  }, []
   );
+
+
+  const addNewHobbit = (newHobit) => {
+    createHobit(newHobit);
+    setHobits((prevHobits) => [...prevHobits, newHobit]);
+    setNewHobitClicked(false);
+  }
 
   return (
     <>
       <h3>Enter details about your {props.about} hobbits</h3>
       <div className={stylesHobit.container}>
         {hobits.map((hobit) =>
-          <div>
-            <br></br>
+          <div className={stylesHobit.bigblue}>
             <HobbitDetails key={hobit.id} hobbitDetail={hobit} />
           </div>
         )}
-        <hr></hr>
 
-        {wasNewHobitClicked && <NewHobbit notifyFormDisplay={setNewHobitClicked} />
-        }
+        {wasNewHobitClicked && <div className={stylesHobit.bigblue}> <NewHobbit onAdd={addNewHobbit} /> </div>}
+
+      <div className={`${stylesHobit.bigblue} ${stylesHobit.addHobit}`} onClick={() => setNewHobitClicked(true)}>
+        <div>
+          +
+        </div>
       </div>
-
-      <button onClick={() => setNewHobitClicked(true)}>Add new hobit</button>
-      {/* Add option to add more hobbits */}
-      <button>Let's play</button>
-      {/* #TODO Move to next page where hobbits do some stuff. It initially could simulate loading screen */}
+    </div >
+      < button > Let's play</button>
+  {/* #TODO Move to next page where hobbits do some stuff. It initially could simulate loading screen */ }
     </>
   )
 }

@@ -1,12 +1,8 @@
-import { createHobit } from "../../services/api";
 import { useState } from "react";
-import stylesHobitDetails from './hobbit-details.module.css';
 
-function NewHobbit(props) {
+function NewHobbit({onAdd}) {
 
     const moods = ['Happy', 'Angry', 'Sad'];
-
-    const [, setHobits] = useState([]);
 
     const [inputs, setInputs] = useState({
         name: '',
@@ -31,14 +27,12 @@ function NewHobbit(props) {
 
     const submitHobbit = (event) => {
         event.preventDefault();
-        props.notifyFormDisplay(false);
-        createHobit(inputs);
-        setHobits((prevHobits) => [...prevHobits, inputs]);
+        onAdd(inputs);
         setInputs({ name: '', age: '', mood: '', footSize: '' });
     }
 
     return (
-        <form onSubmit={submitHobbit} className={stylesHobitDetails.bigblue}>
+        <form onSubmit={submitHobbit}>
             <div>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" value={inputs.name} onChange={handleChange} />
