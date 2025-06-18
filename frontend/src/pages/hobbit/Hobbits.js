@@ -41,16 +41,19 @@ function Hobbit(props) {
           </div>
         )}
 
-        {wasNewHobitClicked && <div className={stylesHobit.bigblue}> <NewHobbit onAdd={addNewHobbit} /> </div>}
-
-      <div className={`${stylesHobit.bigblue} ${stylesHobit.addHobit}`} onClick={() => setNewHobitClicked(true)}>
-        <div>
-          +
-        </div>
-      </div>
-    </div >
+        {wasNewHobitClicked ? (
+          <div className={stylesHobit.bigblue}>
+            <NewHobbit onAdd={addNewHobbit} />
+          </div>
+        ) : (
+          <div className={`${stylesHobit.bigblue} ${stylesHobit.addHobit}`} onClick={() => setNewHobitClicked(true)}>
+            <div>
+              +
+            </div>
+          </div>)}
+      </div >
       < button > Let's play</button>
-  {/* #TODO Move to next page where hobbits do some stuff. It initially could simulate loading screen */ }
+      {/* #TODO Move to next page where hobbits do some stuff. It initially could simulate loading screen */}
     </>
   )
 }
